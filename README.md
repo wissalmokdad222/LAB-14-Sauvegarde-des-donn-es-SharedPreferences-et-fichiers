@@ -6,41 +6,44 @@ Projet Android développé en Java illustrant la mise en œuvre des différents 
 
 Ce laboratoire permet de manipuler les API de persistance Android en respectant les standards de sécurité modernes (chiffrement via Keystore, isolation MODE_PRIVATE, gestion du cycle de vie des secrets).
 
-## Résultats et Preuves de fonctionnement
+## Preuves de fonctionnement
 
-L'application a été testée avec succès sur un émulateur API 30. Voici les points validés :
+Les captures suivantes valident les fonctionnalités de stockage et de sécurité :
 
-1. **Persistance des Préférences** : Le nom "Wissal", la langue "fr" et le thème sombre sont correctement sauvegardés et restaurés après redémarrage.
-2. **Sécurité du Token** : Le jeton API est stocké de manière chiffrée. L'interface affiche uniquement le statut "Présent" et la longueur (22 caractères) pour éviter toute fuite visuelle.
-3. **Gestion du Cycle de Vie** : Le token inclut un horodatage et expire automatiquement après une heure, garantissant une sécurité accrue.
-4. **Stockage de Fichiers** : Les fichiers `students.json` et `note.txt` sont générés en stockage interne privé (`/data/data/com.example.securestoragelabjava/files/`).
-5. **Hygiène du Stockage** : La fonction "Effacer" supprime instantanément toutes les préférences, les fichiers et purge le cache.
+### 1. Stockage Sécurisé et Préférences
+Démonstration de la restauration des préférences utilisateur et de la détection d'un token chiffré (longueur affichée, contenu masqué).
+![Capture Préférences](captures/prefs_proof.png)
+
+### 2. Gestion des Fichiers (JSON & Texte)
+Validation de la lecture d'un fichier JSON contenant une liste d'objets et d'une note en UTF-8.
+![Capture JSON](captures/json_proof.png)
 
 ## Étapes de réalisation
 
 ### 1. Configuration et Dépendances
-Initialisation du projet avec un SDK minimum 24 et ajout de la bibliothèque AndroidX Security Crypto pour le support du chiffrement matériel.
+SDK minimum 24 et intégration de `androidx.security:security-crypto`.
 
-### 2. Gestion des Préférences (SharedPreferences)
-Implémentation d'un gestionnaire pour les données non sensibles. Utilisation de la méthode `apply()` pour des opérations asynchrones.
+### 2. SharedPreferences
+Persistance du Nom, de la Langue et du Thème en mode privé.
 
-### 3. Sécurisation des Secrets (EncryptedSharedPreferences)
-Utilisation du framework Security Crypto pour chiffrer les jetons d'accès. Les clés sont protégées par le Android Keystore.
+### 3. EncryptedSharedPreferences
+Chiffrement AES-256 du token API avec expiration automatique (TTL 1h).
 
-### 4. Stockage Interne (Fichiers Texte et JSON)
-Lecture/Écriture en UTF-8 pour le texte brut et sérialisation JSON pour les listes d'objets.
+### 4. Stockage Interne
+Fichiers `students.json` et `note.txt` isolés via `MODE_PRIVATE`.
 
 ### 5. Gestion du Cache
-Utilisation du répertoire de cache pour les données temporaires avec mécanisme de purge.
+Stockage temporaire dans `cacheDir` avec purge manuelle.
 
 ## Bonnes Pratiques Appliquées
 
-- Isolation des données : Utilisation systématique du mode privé.
-- Confidentialité des logs : Zéro secret exposé dans Logcat.
-- Masquage UI : Protection visuelle via `textPassword`.
+- Isolation stricte (Mode privé).
+- Zéro donnée sensible dans les logs système.
+- Masquage des saisies sensibles (textPassword).
+- Nettoyage intégral possible via l'interface.
 
 ## Spécifications Techniques
 
 - Langage : Java
 - SDK Minimum : 24
-- Bibliothèque principale : androidx.security:security-crypto
+- Bibliothèque : androidx.security:security-crypto
