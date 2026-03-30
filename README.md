@@ -8,8 +8,6 @@ Ce laboratoire permet de manipuler les API de persistance Android en respectant 
 
 ## Preuves de fonctionnement
 
-Les captures et la vidéo suivantes valident les fonctionnalités de stockage et de sécurité :
-
 ### 1. Stockage Sécurisé et Préférences
 Démonstration de la restauration des préférences utilisateur et de la détection d'un token chiffré (longueur affichée, contenu masqué).
 ![Capture Préférences](captures/prefs_proof.png)
@@ -19,9 +17,11 @@ Validation de la lecture d'un fichier JSON contenant une liste d'objets et d'une
 ![Capture JSON](captures/json_proof.png)
 
 ### 3. Démonstration Vidéo
-Vous pouvez consulter la démonstration complète du fonctionnement de l'application (saisie, sauvegarde, chargement et nettoyage) dans le fichier vidéo suivant :
+Voici la démonstration complète des fonctionnalités de l'application :
 
-[Lien vers la vidéo de démonstration](Sauvegarde%20des%20données%20–%20SharedPreferences%20et%20fichiers%20.mp4)
+<video src="Sauvegarde des données – SharedPreferences et fichiers .mp4" controls="controls" style="max-width: 100%;">
+  Votre navigateur ne supporte pas la lecture de cette vidéo. Vous pouvez la télécharger directement dans le dépôt.
+</video>
 
 ## Étapes de réalisation
 
