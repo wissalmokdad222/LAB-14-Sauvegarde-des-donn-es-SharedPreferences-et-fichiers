@@ -10,18 +10,16 @@ Ce laboratoire permet de manipuler les API de persistance Android en respectant 
 
 ### 1. Stockage Sécurisé et Préférences
 Démonstration de la restauration des préférences utilisateur et de la détection d'un token chiffré (longueur affichée, contenu masqué).
-![Capture Préférences](captures/prefs_proof.png)
 
 ### 2. Gestion des Fichiers (JSON & Texte)
 Validation de la lecture d'un fichier JSON contenant une liste d'objets et d'une note en UTF-8.
-![Capture JSON](captures/json_proof.png)
 
 ### 3. Démonstration Vidéo
 Voici la démonstration complète des fonctionnalités de l'application :
 
-<video src="Sauvegarde des données – SharedPreferences et fichiers .mp4" controls="controls" style="max-width: 100%;">
-  Votre navigateur ne supporte pas la lecture de cette vidéo. Vous pouvez la télécharger directement dans le dépôt.
-</video>
+ [Voir la vidéo](./Sauvegarde%20des%20données%20–%20SharedPreferences%20et%20fichiers%20.mp4)
+
+> Si la vidéo ne s'affiche pas directement sur GitHub, cliquez sur le lien pour la télécharger ou l’ouvrir.
 
 ## Étapes de réalisation
 
@@ -42,13 +40,13 @@ Stockage temporaire dans `cacheDir` avec purge manuelle.
 
 ## Bonnes Pratiques Appliquées
 
-- Isolation stricte (Mode privé).
-- Zéro donnée sensible dans les logs système.
-- Masquage des saisies sensibles (textPassword).
-- Nettoyage intégral possible via l'interface.
+- Isolation stricte (Mode privé)
+- Zéro donnée sensible dans les logs système
+- Masquage des saisies sensibles (`textPassword`)
+- Nettoyage intégral possible via l'interface
 
 ## Spécifications Techniques
 
-- Langage : Java
-- SDK Minimum : 24
+- Langage : Java  
+- SDK Minimum : 24  
 - Bibliothèque : androidx.security:security-crypto
