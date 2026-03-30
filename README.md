@@ -17,9 +17,8 @@ Validation de la lecture d'un fichier JSON contenant une liste d'objets et d'une
 ### 3. Démonstration Vidéo
 Voici la démonstration complète des fonctionnalités de l'application :
 
- [Voir la vidéo](./Sauvegarde%20des%20données%20–%20SharedPreferences%20et%20fichiers%20.mp4)
+ [Voir la vidéo](./video.mp4)
 
-> Si la vidéo ne s'affiche pas directement sur GitHub, cliquez sur le lien pour la télécharger ou l’ouvrir.
 
 ## Étapes de réalisation
 
